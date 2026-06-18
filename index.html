@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mara Colace — Ripetizioni e aiuto compiti</title>
+  <meta name="description"
+    content="Prenota una lezione di ripetizione, aiuto compiti o recupero con Mara Colace. Scegli il giorno e l'orario direttamente sul calendario." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* =========================================================
+   Mara Colace — Ripetizioni · stile ispirato alla locandina
+   Palette: navy + turchese + crema + rosa, doodle di cancelleria
+   ========================================================= */
+
+    :root {
+      --ink: #16306e;
+      /* blu navy dei titoli */
+      --ink-soft: #2f4d9e;
+      --ink-mist: #6c7ba8;
+      --teal: #57c4c9;
+      /* turchese del blob */
+      --teal-deep: #2fa3a8;
+      --teal-tint: #e3f6f6;
+      --paper: #f7f1e1;
+      /* crema */
+      --paper-2: #fdfaf0;
+      --pink: #f4b3c6;
+      --pink-tint: #fce6ec;
+      --mint: #bfe3c0;
+      /* verde della beuta */
+      --danger: #d6455f;
+      --white: #ffffff;
+      --line: #e7dfca;
+      --shadow: 0 14px 34px -16px rgba(22, 48, 110, .32);
+      --shadow-sm: 0 6px 18px -10px rgba(22, 48, 110, .35);
+      --radius: 20px;
+      --radius-sm: 13px;
+      --display: "Fredoka", system-ui, sans-serif;
+      --body: "Nunito", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--body);
+      color: var(--ink);
+      background-color: var(--paper);
+      /* doodle di cancelleria, come la locandina */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%2316306e' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' opacity='0.06'%3E%3Cpath d='M28 30l30 8-4 14-30-8z'/%3E%3Cpath d='M24 32l6-3 28 7-2 7z'/%3E%3Crect x='150' y='20' width='34' height='22' rx='3'/%3E%3Cline x1='156' y1='42' x2='156' y2='48'/%3E%3Cline x1='178' y1='42' x2='178' y2='48'/%3E%3Cpath d='M40 150l40-40 8 8-40 40-12 4z'/%3E%3Cpath d='M170 130l-26 26 4 4 26-26'/%3E%3Cpath d='M170 130l4 4'/%3E%3Cpath d='M150 95c0-6 5-9 9-9s9 3 9 9c0 7-9 13-9 13s-9-6-9-13z'/%3E%3Crect x='30' y='95' width='22' height='28' rx='2'/%3E%3Cline x1='35' y1='103' x2='47' y2='103'/%3E%3Cline x1='35' y1='110' x2='47' y2='110'/%3E%3Cpath d='M95 175l8-16 8 16-8 4z'/%3E%3Cpath d='M188 170c4-4 10-4 12 1'/%3E%3Cpath d='M186 178c5-5 13-4 16 2'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+    }
+
+    /* ---------- Tipografia base ---------- */
+    h1,
+    h2,
+    h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--ink-soft);
+    }
+
+    .muted {
+      color: var(--ink-mist);
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+
+    .eyebrow,
+    .modal-badge {
+      font-family: var(--display);
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: var(--teal-deep);
+    }
+
+    /* ---------- Bottoni ---------- */
+    .btn {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: .98rem;
+      border: none;
+      border-radius: 999px;
+      padding: .7em 1.25em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4em;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      text-decoration: none;
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(.99);
+    }
+
+    .btn-solid {
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-solid:hover {
+      background: var(--ink-soft);
+    }
+
+    .btn-line {
+      background: transparent;
+      color: var(--ink);
+      box-shadow: inset 0 0 0 2px var(--ink);
+    }
+
+    .btn-line:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .btn-ghost {
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-ghost:hover {
+      background: var(--teal-tint);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-wa {
+      background: #25d366;
+      color: #0a3622;
+    }
+
+    .btn-wa:hover {
+      background: #1ebe5b;
+    }
+
+    .btn-danger.ghost {
+      background: transparent;
+      color: var(--danger);
+      box-shadow: inset 0 0 0 2px var(--danger);
+    }
+
+    .btn-danger.ghost:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn.block {
+      width: 100%;
+      margin-top: .4rem;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .7rem clamp(1rem, 4vw, 2.5rem);
+      background: rgba(247, 241, 225, .86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--teal);
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-mark.sm {
+      width: auto;
+      height: auto;
+      background: none;
+      box-shadow: none;
+      font-size: 1.3rem;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      font-family: var(--display);
+      font-size: 1.12rem;
+    }
+
+    .brand-text em {
+      font-style: normal;
+      font-size: .74rem;
+      color: var(--ink-mist);
+      letter-spacing: .02em;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: .5rem;
+    }
+
+    .site-nav .btn {
+      padding: .5em 1em;
+      font-size: .9rem;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      padding: clamp(2.5rem, 7vw, 5rem) clamp(1rem, 4vw, 2.5rem) clamp(2rem, 5vw, 3rem);
+      overflow: hidden;
+    }
+
+    .hero-blob {
+      position: absolute;
+      top: -32%;
+      left: -12%;
+      width: 78%;
+      height: 135%;
+      z-index: 0;
+      background: radial-gradient(120% 90% at 60% 50%, var(--teal) 0%, var(--teal) 55%, transparent 72%);
+      filter: blur(2px);
+      opacity: .85;
+      border-radius: 50%;
+      transform: rotate(-8deg);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--display);
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--white);
+      display: inline-block;
+      padding: .35em .9em;
+      border-radius: 999px;
+      font-size: .82rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 8vw, 4.8rem);
+      letter-spacing: -.01em;
+      color: var(--ink);
+      text-shadow: 0 2px 0 rgba(255, 255, 255, .4);
+    }
+
+    .hero-title span {
+      color: var(--white);
+      -webkit-text-stroke: 2px var(--ink);
+      paint-order: stroke fill;
+    }
+
+    .hero-sub {
+      margin: 1.1rem 0 1.6rem;
+      max-width: 46ch;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    /* ---------- Sezione prenotazione ---------- */
+    .booking {
+      padding: clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2.5rem) 4rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 1.8rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      margin: .3rem 0 .5rem;
+    }
+
+    .section-head p {
+      color: var(--ink-soft);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(1.1rem, 3vw, 1.6rem);
+      box-shadow: var(--shadow);
+    }
+
+    /* Calendario */
+    .cal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .cal-head h3 {
+      font-size: 1.25rem;
+      text-transform: capitalize;
+    }
+
+    .cal-nav {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: var(--teal-tint);
+      color: var(--ink);
+      font-size: 1.4rem;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      transition: background .15s;
+    }
+
+    .cal-nav:hover {
+      background: var(--teal);
+    }
+
+    .cal-weekdays,
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+
+    .cal-weekdays {
+      margin-bottom: 6px;
+    }
+
+    .cal-weekdays span {
+      text-align: center;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--ink-mist);
+    }
+
+    .cal-day {
+      aspect-ratio: 1;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      cursor: default;
+      font-family: var(--body);
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--ink);
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 0;
+    }
+
+    .cal-day.empty {
+      visibility: hidden;
+    }
+
+    .cal-day.past {
+      color: var(--ink-mist);
+      opacity: .45;
+    }
+
+    .cal-day.has-free {
+      background: var(--teal-tint);
+      cursor: pointer;
+    }
+
+    .cal-day.has-free:hover {
+      background: var(--teal);
+    }
+
+    .cal-day.full {
+      background: var(--pink-tint);
+      cursor: pointer;
+    }
+
+    .cal-day.full:hover {
+      background: var(--pink);
+    }
+
+    .cal-day.selected {
+      outline: 3px solid var(--ink);
+      outline-offset: -1px;
+    }
+
+    .cal-day .dot {
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .cal-day.today::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: 7px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-free {
+      background: var(--teal-deep);
+    }
+
+    .dot-full {
+      background: var(--pink);
+    }
+
+    .cal-legend {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      font-size: .82rem;
+      color: var(--ink-mist);
+    }
+
+    .cal-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* Slot del giorno */
+    .slots-card h3 {
+      font-size: 1.25rem;
+      text-transform: capitalize;
+    }
+
+    .slots-hint {
+      color: var(--ink-mist);
+      margin-top: .5rem;
+      font-size: .92rem;
+    }
+
+    .slots-list {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: 1rem;
+    }
+
+    .slot-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 1.1rem;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--teal);
+      background: var(--white);
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      font-family: var(--body);
+      transition: transform .12s, box-shadow .2s;
+    }
+
+    .slot-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slot-pill .time {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .slot-pill .tag {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--teal-deep);
+      background: var(--teal-tint);
+      padding: .25em .7em;
+      border-radius: 999px;
+    }
+
+    .slot-pill.taken {
+      border-color: var(--line);
+      background: var(--paper);
+      cursor: not-allowed;
+      opacity: .7;
+    }
+
+    .slot-pill.taken .tag {
+      color: var(--ink-mist);
+      background: var(--line);
+    }
+
+    .slots-empty {
+      color: var(--ink-mist);
+      font-size: .95rem;
+      padding: .5rem 0;
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      background: var(--ink);
+      color: #dbe4ff;
+      padding: 2.2rem clamp(1rem, 4vw, 2.5rem);
+    }
+
+    .foot-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .foot-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    .foot-tag {
+      color: #aebbe6;
+      font-size: .95rem;
+    }
+
+    .foot-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+    }
+
+    .foot-contact .btn-line {
+      box-shadow: inset 0 0 0 2px #5d72b8;
+      color: #dbe4ff;
+    }
+
+    .foot-contact .btn-line:hover {
+      background: #fff;
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .foot-phone {
+      font-family: var(--display);
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .foot-admin-link {
+      background: none;
+      border: none;
+      color: #8a99cf;
+      cursor: pointer;
+      font-family: var(--body);
+      font-size: .9rem;
+      text-decoration: underline;
+    }
+
+    /* ---------- Modali ---------- */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(22, 48, 110, .42);
+      backdrop-filter: blur(3px);
+      animation: fade .2s ease;
+    }
+
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-card {
+      background: var(--paper-2);
+      border-radius: var(--radius);
+      padding: clamp(1.4rem, 4vw, 2.2rem);
+      width: min(520px, 100%);
+      max-height: 92vh;
+      overflow: auto;
+      position: relative;
+      box-shadow: 0 30px 60px -20px rgba(22, 48, 110, .55);
+      animation: pop .25s ease;
+    }
+
+    .modal-card.narrow {
+      width: min(420px, 100%);
+    }
+
+    .modal-card h2 {
+      font-size: 1.7rem;
+      margin: .4rem 0 .6rem;
+    }
+
+    .modal-x {
+      position: absolute;
+      top: .8rem;
+      right: .9rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-x:hover {
+      background: var(--pink-tint);
+    }
+
+    .modal-badge {
+      display: inline-block;
+    }
+
+    /* Help */
+    .steps {
+      counter-reset: s;
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 3rem;
+      line-height: 1.45;
+    }
+
+    .steps li::before {
+      counter-increment: s;
+      content: counter(s);
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--teal);
+      color: var(--ink);
+      font-family: var(--display);
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+    }
+
+    .help-note {
+      background: var(--pink-tint);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.1rem;
+      margin-bottom: 1.2rem;
+      font-size: .94rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    /* Form */
+    .form-row {
+      margin: .7rem 0;
+    }
+
+    .form-row.two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--ink);
+    }
+
+    .opt {
+      font-weight: 400;
+      color: var(--ink-mist);
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=date],
+    input[type=time],
+    input[type=search],
+    select {
+      font-family: var(--body);
+      font-size: 1rem;
+      padding: .65rem .8rem;
+      border-radius: 12px;
+      border: 2px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      width: 100%;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+
+    .slot-recap {
+      background: var(--teal-tint);
+      border-radius: 12px;
+      padding: .7rem 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
+
+    .form-error {
+      color: var(--danger);
+      font-weight: 700;
+      font-size: .9rem;
+      margin: .4rem 0;
+    }
+
+    .hint-default {
+      font-size: .82rem;
+      color: var(--ink-mist);
+      margin-top: .8rem;
+      text-align: center;
+    }
+
+    .hint-default code {
+      background: var(--teal-tint);
+      padding: .1em .4em;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    /* Conferma / banner ringraziamento */
+    .modal-card.thanks {
+      text-align: center;
+      border: 3px solid var(--teal);
+    }
+
+    .thanks-burst {
+      font-size: 2.4rem;
+      color: var(--teal);
+      animation: spin 6s linear infinite;
+    }
+
+    .modal-card.thanks h2 {
+      font-size: 2rem;
+    }
+
+    .thanks-recap {
+      background: var(--teal-tint);
+      border-radius: 12px;
+      padding: .8rem;
+      font-weight: 700;
+      margin: .8rem 0;
+    }
+
+    .thanks-rules {
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      margin-bottom: 1.2rem;
+      font-size: .98rem;
+    }
+
+    .big-phone {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: .2rem;
+    }
+
+    .thanks-rules .small {
+      font-size: .82rem;
+      color: var(--ink-mist);
+    }
+
+    /* ---------- Area docente ---------- */
+    .admin-view {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: var(--paper);
+      overflow: auto;
+    }
+
+    .admin-view[hidden] {
+      display: none;
+    }
+
+    .admin-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: .8rem clamp(1rem, 4vw, 2rem);
+    }
+
+    .admin-title {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: .3rem;
+      flex: 1;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .atab {
+      font-family: var(--display);
+      font-weight: 600;
+      background: transparent;
+      color: #aebbe6;
+      border: none;
+      padding: .5em 1em;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: .95rem;
+    }
+
+    .atab:hover {
+      color: #fff;
+    }
+
+    .atab.is-active {
+      background: var(--teal);
+      color: var(--ink);
+    }
+
+    .admin-header .btn-ghost {
+      background: #26449a;
+      color: #fff;
+    }
+
+    .admin-header .btn-ghost:hover {
+      background: #33539e;
+    }
+
+    .admin-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(1rem, 4vw, 2rem);
+    }
+
+    .apanel {
+      display: none;
+    }
+
+    .apanel.is-active {
+      display: block;
+      animation: fade .2s ease;
+    }
+
+    .admin-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .admin-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: .3rem;
+    }
+
+    hr.soft {
+      border: none;
+      border-top: 1px dashed var(--line);
+      margin: 1.4rem 0;
+    }
+
+    .weekdays {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: .6rem .8rem;
+      margin: .7rem 0;
+    }
+
+    .weekdays legend {
+      font-weight: 700;
+      font-size: .85rem;
+      padding: 0 .4rem;
+    }
+
+    .weekdays label {
+      flex-direction: row;
+      align-items: center;
+      gap: .3rem;
+      display: inline-flex;
+      margin: .2rem .6rem .2rem 0;
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .weekdays input {
+      width: auto;
+    }
+
+    .admin-slots {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: .8rem;
+    }
+
+    .aslot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .8rem;
+      padding: .7rem .9rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .aslot .a-time {
+      font-family: var(--display);
+      font-weight: 600;
+    }
+
+    .aslot .a-who {
+      font-size: .85rem;
+      color: var(--ink-soft);
+    }
+
+    .aslot .a-free {
+      font-size: .8rem;
+      color: var(--teal-deep);
+      font-weight: 700;
+    }
+
+    .aslot .a-actions {
+      display: flex;
+      gap: .3rem;
+    }
+
+    .icon-btn {
+      border: none;
+      background: var(--paper);
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: .95rem;
+    }
+
+    .icon-btn:hover {
+      background: var(--teal-tint);
+    }
+
+    .icon-btn.del:hover {
+      background: var(--pink-tint);
+    }
+
+    /* Tabella prenotazioni */
+    .bk-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .bk-tools {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .bk-tools input,
+    .bk-tools select {
+      width: auto;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    .bk-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+
+    .bk-table th {
+      text-align: left;
+      font-family: var(--display);
+      font-weight: 600;
+      color: var(--ink-mist);
+      padding: .5rem .6rem;
+      border-bottom: 2px solid var(--line);
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .bk-table td {
+      padding: .7rem .6rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+
+    .bk-table tr:hover td {
+      background: var(--teal-tint);
+    }
+
+    .school-chip {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .2em .6em;
+      border-radius: 999px;
+      background: var(--pink-tint);
+      color: var(--ink-soft);
+    }
+
+    .bk-empty {
+      text-align: center;
+      color: var(--ink-mist);
+      padding: 1.5rem;
+    }
+
+    .settings-actions {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+    }
+
+    .file-btn {
+      cursor: pointer;
+    }
+
+    .cloud-card {
+      margin-bottom: 1.2rem;
+    }
+
+    .cloud-status {
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .cloud-status::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ink-mist);
+    }
+
+    .cloud-status.online {
+      color: var(--teal-deep);
+    }
+
+    .cloud-status.online::before {
+      background: var(--teal-deep);
+      box-shadow: 0 0 0 4px var(--teal-tint);
+    }
+
+    .cloud-status.local {
+      color: var(--ink-soft);
+    }
+
+    .cloud-status.local::before {
+      background: var(--pink);
+    }
+
+    .cloud-status.error {
+      color: var(--danger);
+    }
+
+    .cloud-status.error::before {
+      background: var(--danger);
+    }
+
+    /* ---------- Toast ---------- */
+    .toast-wrap {
+      position: fixed;
+      bottom: 1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      width: min(420px, 92vw);
+    }
+
+    .toast {
+      background: var(--ink);
+      color: #fff;
+      padding: .85rem 1.1rem;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      font-size: .94rem;
+      animation: pop .2s ease;
+    }
+
+    .toast.ok {
+      background: var(--teal-deep);
+    }
+
+    .toast.err {
+      background: var(--danger);
+    }
+
+    /* ---------- Animazioni ---------- */
+    @keyframes fade {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(.98)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:780px) {
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .admin-cols {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-text em {
+        display: none;
+      }
+
+      .hero-blob {
+        width: 120%;
+        left: -20%;
+      }
+    }
+
+    @media (max-width:480px) {
+      .site-nav .btn {
+        padding: .5em .7em;
+        font-size: .82rem;
+      }
+
+      .form-row.two {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    /* ---------- Accessibilità ---------- */
+    :focus-visible {
+      outline: 3px solid var(--teal-deep);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>📚</text></svg>" />
+</head>
+
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Mara Colace, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 5h7a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H3z" />
+          <path d="M21 5h-7a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h8z" />
+        </svg>
+      </span>
+      <span class="brand-text">
+        <strong>Mara Colace</strong>
+        <em>Ripetizioni · aiuto compiti</em>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <button class="btn btn-ghost" id="open-help" type="button">Come funziona?</button>
+      <button class="btn btn-ghost" id="open-admin" type="button">Area docente</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-blob" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Laureata in Farmacia · specializzata per il sostegno</p>
+        <h1 class="hero-title">Scopri il tuo<br>potenziale,<br><span>ogni giorno.</span></h1>
+        <p class="hero-sub">Ripetizioni, aiuto compiti e recupero per scuola primaria, medie, superiori e università.
+          Scegli quando vuoi venire: il calendario qui sotto mostra gli orari liberi.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#prenota">Prenota una lezione</a>
+          <button class="btn btn-line" id="hero-help" type="button">Prima volta? Leggi come fare</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRENOTAZIONE STUDENTE ============ -->
+    <section class="booking" id="prenota">
+      <div class="section-head">
+        <span class="eyebrow">Calendario</span>
+        <h2>Scegli giorno e orario</h2>
+        <p>I giorni con un pallino hanno orari liberi. Tocca il giorno, poi scegli la fascia oraria che preferisci.</p>
+      </div>
+
+      <div class="booking-grid">
+        <!-- Calendario -->
+        <div class="card calendar-card">
+          <div class="cal-head">
+            <button class="cal-nav" id="cal-prev" type="button" aria-label="Mese precedente">‹</button>
+            <h3 id="cal-label">—</h3>
+            <button class="cal-nav" id="cal-next" type="button" aria-label="Mese successivo">›</button>
+          </div>
+          <div class="cal-weekdays" aria-hidden="true">
+            <span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span>
+          </div>
+          <div class="cal-grid" id="cal-grid" role="grid" aria-label="Calendario disponibilità"></div>
+          <div class="cal-legend">
+            <span><i class="dot dot-free"></i> orari liberi</span>
+            <span><i class="dot dot-full"></i> tutto prenotato</span>
+          </div>
+        </div>
+
+        <!-- Slot del giorno -->
+        <div class="card slots-card">
+          <h3 id="slots-title">Seleziona un giorno</h3>
+          <p id="slots-hint" class="slots-hint">Tocca una data evidenziata nel calendario per vedere gli orari
+            disponibili.</p>
+          <div class="slots-list" id="slots-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-name">Mara Colace</p>
+        <p class="foot-tag">Scopri il tuo potenziale, ogni giorno.</p>
+      </div>
+      <div class="foot-contact">
+        <a class="btn btn-line" id="foot-help" type="button" role="button">Come funziona?</a>
+        <a class="foot-phone" href="tel:+393202330365">📞 320 233 0365</a>
+        <button class="foot-admin-link" id="foot-admin" type="button">Area docente</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ AREA DOCENTE (overlay) ============ -->
+  <div class="admin-view" id="admin-view" hidden>
+    <header class="admin-header">
+      <div class="admin-title">
+        <span class="brand-mark sm" aria-hidden="true">🔑</span>
+        <strong>Area docente</strong>
+      </div>
+      <div class="admin-tabs" role="tablist">
+        <button class="atab is-active" data-tab="avail" role="tab" type="button">Disponibilità</button>
+        <button class="atab" data-tab="bookings" role="tab" type="button">Prenotazioni</button>
+        <button class="atab" data-tab="settings" role="tab" type="button">Impostazioni</button>
+      </div>
+      <button class="btn btn-ghost" id="admin-exit" type="button">Esci</button>
+    </header>
+
+    <div class="admin-body">
+      <!-- Tab Disponibilità -->
+      <section class="apanel is-active" id="panel-avail">
+        <div class="admin-cols">
+          <div class="card">
+            <h3>Aggiungi una fascia oraria</h3>
+            <p class="muted">Ogni turno deve durare almeno 1 ora. Le fasce non si possono sovrapporre nello stesso
+              giorno.</p>
+            <div class="form-row">
+              <label>Data
+                <input type="date" id="slot-date" />
+              </label>
+            </div>
+            <div class="form-row two">
+              <label>Dalle
+                <input type="time" id="slot-start" step="900" value="15:00" />
+              </label>
+              <label>Alle
+                <input type="time" id="slot-end" step="900" value="16:00" />
+              </label>
+            </div>
+            <button class="btn btn-solid block" id="add-slot" type="button">Aggiungi fascia</button>
+
+            <hr class="soft" />
+
+            <h3>Genera più fasce in un colpo</h3>
+            <p class="muted">Crea slot da 1 ora per i giorni scelti, in un intervallo di date.</p>
+            <div class="form-row two">
+              <label>Dal giorno
+                <input type="date" id="bulk-from" />
+              </label>
+              <label>Al giorno
+                <input type="date" id="bulk-to" />
+              </label>
+            </div>
+            <div class="form-row two">
+              <label>Dalle
+                <input type="time" id="bulk-start" step="900" value="15:00" />
+              </label>
+              <label>Alle
+                <input type="time" id="bulk-end" step="900" value="19:00" />
+              </label>
+            </div>
+            <fieldset class="weekdays">
+              <legend>Giorni della settimana</legend>
+              <label><input type="checkbox" value="1" checked> Lun</label>
+              <label><input type="checkbox" value="2" checked> Mar</label>
+              <label><input type="checkbox" value="3" checked> Mer</label>
+              <label><input type="checkbox" value="4" checked> Gio</label>
+              <label><input type="checkbox" value="5" checked> Ven</label>
+              <label><input type="checkbox" value="6"> Sab</label>
+              <label><input type="checkbox" value="0"> Dom</label>
+            </fieldset>
+            <button class="btn btn-line block" id="bulk-generate" type="button">Genera fasce da 1 ora</button>
+          </div>
+
+          <div class="card">
+            <h3>Fasce e prenotazioni del giorno</h3>
+            <div class="form-row">
+              <label>Mostra il giorno
+                <input type="date" id="admin-day" />
+              </label>
+            </div>
+            <div class="admin-slots" id="admin-slots"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Prenotazioni -->
+      <section class="apanel" id="panel-bookings">
+        <div class="card">
+          <div class="bk-toolbar">
+            <h3>Tutte le prenotazioni</h3>
+            <div class="bk-tools">
+              <input type="search" id="bk-search" placeholder="Cerca nome, materia…" />
+              <select id="bk-filter">
+                <option value="upcoming">In arrivo</option>
+                <option value="all">Tutte</option>
+                <option value="past">Passate</option>
+              </select>
+              <button class="btn btn-solid" id="add-booking" type="button">+ Aggiungi</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="bk-table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Orario</th>
+                  <th>Studente</th>
+                  <th>Scuola</th>
+                  <th>Materia</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="bk-rows"></tbody>
+            </table>
+          </div>
+          <p class="bk-empty" id="bk-empty" hidden>Nessuna prenotazione da mostrare.</p>
+        </div>
+      </section>
+
+      <!-- Tab Impostazioni -->
+      <section class="apanel" id="panel-settings">
+        <div class="card cloud-card">
+          <h3>Stato connessione</h3>
+          <p id="cloud-status" class="cloud-status">—</p>
+        </div>
+        <div class="admin-cols">
+          <div class="card">
+            <h3>Password area docente</h3>
+            <p class="muted">Cambiala subito al primo accesso. È salvata solo su questo dispositivo.</p>
+            <div class="form-row">
+              <label>Nuova password
+                <input type="password" id="new-pass" placeholder="Almeno 4 caratteri" />
+              </label>
+            </div>
+            <button class="btn btn-solid block" id="save-pass" type="button">Salva password</button>
+          </div>
+          <div class="card">
+            <h3>Backup dei dati</h3>
+            <p class="muted">I dati vivono nel browser di questo dispositivo. Esporta un file per fare una copia o per
+              spostarli su un altro dispositivo.</p>
+            <div class="settings-actions">
+              <button class="btn btn-line" id="export-data" type="button">⬇ Esporta dati</button>
+              <label class="btn btn-line file-btn">⬆ Importa dati
+                <input type="file" id="import-data" accept="application/json" hidden />
+              </label>
+            </div>
+            <hr class="soft" />
+            <button class="btn btn-danger ghost" id="reset-data" type="button">Cancella tutti i dati</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ============ MODALI ============ -->
+
+  <!-- Help -->
+  <div class="modal" id="help-modal" hidden>
+    <div class="modal-card help" role="dialog" aria-modal="true" aria-labelledby="help-h">
+      <button class="modal-x" data-close type="button" aria-label="Chiudi">×</button>
+      <span class="modal-badge">Come prenotare</span>
+      <h2 id="help-h">Tre passi e hai finito 🎒</h2>
+      <ol class="steps">
+        <li><strong>Scegli il giorno.</strong> Nel calendario i giorni con il pallino turchese hanno orari liberi.
+          Toccane uno.</li>
+        <li><strong>Scegli l'orario.</strong> Compaiono le fasce disponibili: tocca quella che preferisci.</li>
+        <li><strong>Lascia i tuoi dati.</strong> Nome, cognome, materia e tipo di scuola. Confermi ed è fatta!</li>
+      </ol>
+      <div class="help-note">
+        <p><strong>Importante:</strong> le prenotazioni non si modificano da soli. Se devi disdire o cambiare, avvisa
+          Mara <strong>almeno 24 ore prima</strong> al <a href="tel:+393202330365">320 233 0365</a>.</p>
+        <p>Niente registrazione, niente pagamenti online: prenoti e basta.</p>
+      </div>
+      <button class="btn btn-solid block" data-close type="button">Ho capito, prenoto!</button>
+    </div>
+  </div>
+
+  <!-- Booking form -->
+  <div class="modal" id="booking-modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bk-h">
+      <button class="modal-x" data-close type="button" aria-label="Chiudi">×</button>
+      <span class="modal-badge">Prenotazione</span>
+      <h2 id="bk-h">Compila i tuoi dati</h2>
+      <p class="slot-recap" id="slot-recap">—</p>
+      <div class="form-row two">
+        <label>Nome
+          <input type="text" id="f-nome" autocomplete="given-name" />
+        </label>
+        <label>Cognome
+          <input type="text" id="f-cognome" autocomplete="family-name" />
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Materia
+          <input type="text" id="f-materia" placeholder="es. Matematica, Inglese, Chimica…" />
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Tipo di scuola
+          <select id="f-scuola">
+            <option value="">Seleziona…</option>
+            <option value="Primaria">Primaria</option>
+            <option value="Medie">Medie</option>
+            <option value="Superiori">Superiori</option>
+            <option value="Università">Università</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Note <span class="opt">(facoltativo)</span>
+          <input type="text" id="f-note" placeholder="es. argomento, verifica in arrivo…" />
+        </label>
+      </div>
+      <p class="form-error" id="bk-error" hidden></p>
+      <button class="btn btn-solid block" id="confirm-booking" type="button">Conferma prenotazione</button>
+    </div>
+  </div>
+
+  <!-- Conferma (banner di ringraziamento) -->
+  <div class="modal" id="confirm-modal" hidden>
+    <div class="modal-card thanks" role="dialog" aria-modal="true" aria-labelledby="ty-h">
+      <div class="thanks-burst" aria-hidden="true">✶</div>
+      <h2 id="ty-h">Grazie, ci sei! 🎉</h2>
+      <p class="thanks-recap" id="thanks-recap">—</p>
+      <div class="thanks-rules">
+        <p>Ti aspettiamo con <strong>puntualità</strong>: aiuta te e chi viene dopo di te.</p>
+        <p>Se non puoi venire, <strong>avvisa almeno 24 ore prima</strong> al<br><a class="big-phone"
+            href="tel:+393202330365">📞 320 233 0365</a></p>
+        <p class="small">Le prenotazioni non si possono modificare da qui: per qualsiasi cambio chiama pure Mara.</p>
+      </div>
+      <a class="btn btn-wa block" id="wa-confirm" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path
+            d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.728-.979 1.247.272z" />
+        </svg>
+        Conferma a Mara su WhatsApp
+      </a>
+      <button class="btn btn-line block" data-close type="button">Chiudi</button>
+    </div>
+  </div>
+
+  <!-- Login docente -->
+  <div class="modal" id="login-modal" hidden>
+    <div class="modal-card narrow" role="dialog" aria-modal="true" aria-labelledby="lg-h">
+      <button class="modal-x" data-close type="button" aria-label="Chiudi">×</button>
+      <span class="modal-badge">Riservato</span>
+      <h2 id="lg-h">Area docente</h2>
+      <p class="muted">Inserisci la password per gestire orari e prenotazioni.</p>
+      <div class="form-row">
+        <label>Password
+          <input type="password" id="login-pass" />
+        </label>
+      </div>
+      <p class="form-error" id="login-error" hidden>Password errata.</p>
+      <button class="btn btn-solid block" id="do-login" type="button">Entra</button>
+      <p class="hint-default" id="default-hint">Primo accesso: la password iniziale è <code>mara2026</code> (cambiala
+        dalle Impostazioni).</p>
+    </div>
+  </div>
+
+  <!-- Edit/Add booking (admin) -->
+  <div class="modal" id="edit-modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="ed-h">
+      <button class="modal-x" data-close type="button" aria-label="Chiudi">×</button>
+      <span class="modal-badge" id="edit-badge">Modifica prenotazione</span>
+      <h2 id="ed-h">Prenotazione</h2>
+      <div class="form-row">
+        <label>Fascia oraria
+          <select id="e-slot"></select>
+        </label>
+      </div>
+      <div class="form-row two">
+        <label>Nome
+          <input type="text" id="e-nome" />
+        </label>
+        <label>Cognome
+          <input type="text" id="e-cognome" />
+        </label>
+      </div>
+      <div class="form-row two">
+        <label>Materia
+          <input type="text" id="e-materia" />
+        </label>
+        <label>Scuola
+          <select id="e-scuola">
+            <option value="Primaria">Primaria</option>
+            <option value="Medie">Medie</option>
+            <option value="Superiori">Superiori</option>
+            <option value="Università">Università</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Note
+          <input type="text" id="e-note" />
+        </label>
+      </div>
+      <p class="form-error" id="edit-error" hidden></p>
+      <button class="btn btn-solid block" id="save-booking" type="button">Salva</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+
+  <script type="module">
+    /* =========================================================
+       Mara Colace — Ripetizioni
+       Funziona in due modalità:
+       • LOCALE   → dati nel browser (se la config Firebase è vuota)
+       • ONLINE   → Firebase Firestore, sincronizzato tra dispositivi
+       Il codice sceglie la modalità da solo in base alla config qui sotto.
+       ========================================================= */
+
+    /* =========================================================
+       ⚙️  CONFIGURAZIONE FIREBASE  ⚙️
+       Per attivare la sincronizzazione online, incolla qui i valori
+       del tuo progetto Firebase (vedi GUIDA.md, sezione "Backend gratuito").
+       Lascia i valori "INCOLLA_QUI" per restare in modalità locale.
+       ========================================================= */
+    const firebaseConfig = {
+      apiKey: "AIzaSyByljC9t8uyHMDgCyZjqR8j5BlbKTIsAnY",
+      authDomain: "ripetizioni-mara.firebaseapp.com",
+      projectId: "ripetizioni-mara",
+      storageBucket: "ripetizioni-mara.firebasestorage.app",
+      messagingSenderId: "126551663959",
+      appId: "1:126551663959:web:db0efbe14d0d47b0120a12"
+    };
+    const FB_VERSION = "12.15.0";
+    const CLOUD_CONFIGURED = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("INCOLLA");
+
+    /* =========================================================
+       📱  NOTIFICHE WHATSAPP  📱
+       • MARA_WHATSAPP: numero di Mara con prefisso, senza "+" né spazi.
+         Serve per il pulsante "Conferma a Mara su WhatsApp" (sempre attivo).
+       • CALLMEBOT: avviso automatico opzionale (vedi GUIDA.md).
+         Lascia i campi vuoti per disattivarlo.
+       ========================================================= */
+    const MARA_WHATSAPP = "393202330365";
+    const CALLMEBOT = { phone: "", apikey: "" };
+
+    /* -------------------- Storage locale -------------------- */
+    const KEY = "mc_ripetizioni_v1";
+    const DEFAULT_DB = { slots: [], bookings: [], settings: { password: "mara2026" } };
+
+    function loadDB() {
+      try {
+        const raw = localStorage.getItem(KEY);
+        if (!raw) return structuredClone(DEFAULT_DB);
+        const db = JSON.parse(raw);
+        db.slots ||= []; db.bookings ||= []; db.settings ||= { password: "mara2026" };
+        return db;
+      } catch (e) { return structuredClone(DEFAULT_DB); }
+    }
+    function saveLocal() { localStorage.setItem(KEY, JSON.stringify(DB)); }
+
+    let DB = loadDB();          // sorgente in memoria letta dalla UI
+    let cloudActive = false;    // true se Firebase è attivo e funzionante
+
+    /* -------------------- Riferimenti Firebase (assegnati a runtime) -------------------- */
+    let fdb = null;
+    let _collection, _doc, _setDoc, _deleteDoc, _onSnapshot, _writeBatch, _getDocs;
+
+    /* -------------------- Stato UI -------------------- */
+    const state = {
+      viewMonth: startOfMonth(new Date()),
+      selectedDate: null,
+      pendingSlotId: null,
+      editingBookingId: null,
+    };
+
+    /* -------------------- Utilità data -------------------- */
+    const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    const pad = (n) => String(n).padStart(2, "0");
+    function ymd(d) { return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; }
+    function parseYMD(s) { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); }
+    function startOfMonth(d) { return new Date(d.getFullYear(), d.getMonth(), 1); }
+    function todayYMD() { return ymd(new Date()); }
+    function nowHM() { const n = new Date(); return `${pad(n.getHours())}:${pad(n.getMinutes())}`; }
+    function minutes(hm) { const [h, m] = hm.split(":").map(Number); return h * 60 + m; }
+    function fmtTime(hm) { return hm; }
+    function fmtDateLong(s) { return parseYMD(s).toLocaleDateString("it-IT", { weekday: "long", day: "numeric", month: "long" }); }
+    function fmtMonth(d) { return d.toLocaleDateString("it-IT", { month: "long", year: "numeric" }); }
+
+    /* -------------------- Query sui dati -------------------- */
+    function slotsForDate(date) { return DB.slots.filter((s) => s.date === date).sort((a, b) => minutes(a.start) - minutes(b.start)); }
+    function bookingForSlot(slotId) { return DB.bookings.find((b) => b.slotId === slotId) || null; }
+    function isPastSlot(slot) {
+      const t = todayYMD();
+      if (slot.date < t) return true;
+      if (slot.date === t && minutes(slot.end) <= minutes(nowHM())) return true;
+      return false;
+    }
+    function dateStatus(date) {
+      if (date < todayYMD()) return slotsForDate(date).length ? "past" : "none";
+      const slots = slotsForDate(date).filter((s) => !isPastSlot(s));
+      if (!slots.length) return "none";
+      return slots.some((s) => !bookingForSlot(s.id)) ? "free" : "full";
+    }
+
+    /* -------------------- DOM helpers -------------------- */
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+    function toast(msg, type = "") {
+      const wrap = $("#toast-wrap");
+      const el = document.createElement("div");
+      el.className = "toast " + type; el.textContent = msg;
+      wrap.appendChild(el);
+      setTimeout(() => { el.style.opacity = "0"; el.style.transition = "opacity .3s"; }, 2600);
+      setTimeout(() => el.remove(), 3000);
+    }
+    function openModal(id) { const m = $("#" + id); m.hidden = false; const f = m.querySelector("input,select,button"); if (f) setTimeout(() => f.focus(), 50); }
+    function closeModal(id) { $("#" + id).hidden = true; }
+    function closeAllModals() { $$(".modal").forEach((m) => (m.hidden = true)); }
+
+    /* =========================================================
+       LIVELLO DATI (locale o cloud)
+       ========================================================= */
+    async function cloudSet(coll, obj) { await _setDoc(_doc(fdb, coll, obj.id), obj); }
+    async function cloudDel(coll, id) { await _deleteDoc(_doc(fdb, coll, id)); }
+    async function cloudBatchSet(coll, arr) {
+      for (let i = 0; i < arr.length; i += 400) {
+        const b = _writeBatch(fdb);
+        arr.slice(i, i + 400).forEach((o) => b.set(_doc(fdb, coll, o.id), o));
+        await b.commit();
+      }
+    }
+    async function cloudDeleteAll(coll) {
+      const snap = await _getDocs(_collection(fdb, coll));
+      const ids = snap.docs.map((d) => d.id);
+      for (let i = 0; i < ids.length; i += 400) {
+        const b = _writeBatch(fdb);
+        ids.slice(i, i + 400).forEach((id) => b.delete(_doc(fdb, coll, id)));
+        await b.commit();
+      }
+    }
+
+    /* =========================================================
+       CALENDARIO STUDENTE
+       ========================================================= */
+    function renderCalendar() {
+      const grid = $("#cal-grid"); grid.innerHTML = "";
+      $("#cal-label").textContent = fmtMonth(state.viewMonth);
+      const first = state.viewMonth;
+      const year = first.getFullYear(), month = first.getMonth();
+      const startWeekday = (first.getDay() + 6) % 7;
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      for (let i = 0; i < startWeekday; i++) {
+        const e = document.createElement("div"); e.className = "cal-day empty"; grid.appendChild(e);
+      }
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = `${year}-${pad(month + 1)}-${pad(day)}`;
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.className = "cal-day"; btn.textContent = day; btn.dataset.date = dateStr;
+        if (dateStr === todayYMD()) btn.classList.add("today");
+        const status = dateStatus(dateStr);
+        if (dateStr < todayYMD()) { btn.classList.add("past"); btn.disabled = true; }
+        if (status === "free") { btn.appendChild(makeDot("dot-free")); btn.classList.add("has-free"); }
+        else if (status === "full") { btn.appendChild(makeDot("dot-full")); btn.classList.add("full"); }
+        else if (status === "none") { btn.disabled = true; }
+        if (dateStr === state.selectedDate) btn.classList.add("selected");
+        grid.appendChild(btn);
+      }
+    }
+    function makeDot(cls) { const d = document.createElement("i"); d.className = "dot " + cls; return d; }
+
+    function renderDaySlots() {
+      const title = $("#slots-title"), hint = $("#slots-hint"), list = $("#slots-list");
+      list.innerHTML = "";
+      if (!state.selectedDate) {
+        title.textContent = "Seleziona un giorno";
+        hint.textContent = "Tocca una data evidenziata nel calendario per vedere gli orari disponibili.";
+        hint.hidden = false; return;
+      }
+      title.textContent = fmtDateLong(state.selectedDate);
+      const slots = slotsForDate(state.selectedDate).filter((s) => !isPastSlot(s));
+      if (!slots.length) { hint.hidden = false; hint.textContent = "Nessun orario disponibile in questo giorno."; return; }
+      hint.hidden = true;
+      slots.forEach((s) => {
+        const booked = bookingForSlot(s.id);
+        const pill = document.createElement("button");
+        pill.type = "button"; pill.className = "slot-pill" + (booked ? " taken" : "");
+        pill.innerHTML = `<span class="time">${fmtTime(s.start)}–${fmtTime(s.end)}</span>
+      <span class="tag">${booked ? "Occupato" : "Libero"}</span>`;
+        if (!booked) pill.addEventListener("click", () => startBooking(s.id));
+        else pill.setAttribute("aria-disabled", "true");
+        list.appendChild(pill);
+      });
+    }
+
+    /* =========================================================
+       PRENOTAZIONE STUDENTE
+       ========================================================= */
+    function startBooking(slotId) {
+      const slot = DB.slots.find((s) => s.id === slotId);
+      if (!slot || bookingForSlot(slotId)) { toast("Spiacenti, questo orario è appena stato preso.", "err"); renderAll(); return; }
+      state.pendingSlotId = slotId;
+      $("#slot-recap").textContent = `${capitalize(fmtDateLong(slot.date))} · ${slot.start}–${slot.end}`;
+      ["#f-nome", "#f-cognome", "#f-materia", "#f-note"].forEach((s) => ($(s).value = ""));
+      $("#f-scuola").value = ""; $("#bk-error").hidden = true;
+      openModal("booking-modal");
+    }
+
+    async function confirmBooking() {
+      const slot = DB.slots.find((s) => s.id === state.pendingSlotId);
+      const err = $("#bk-error");
+      if (!slot) { err.textContent = "Orario non più valido."; err.hidden = false; return; }
+      if (bookingForSlot(slot.id)) { err.textContent = "Questo orario è stato appena prenotato. Scegline un altro."; err.hidden = false; return; }
+      const nome = $("#f-nome").value.trim(), cognome = $("#f-cognome").value.trim();
+      const materia = $("#f-materia").value.trim(), scuola = $("#f-scuola").value;
+      if (!nome || !cognome || !materia || !scuola) { err.textContent = "Compila nome, cognome, materia e tipo di scuola."; err.hidden = false; return; }
+
+      const booking = { id: uid(), slotId: slot.id, nome, cognome, materia, scuola, note: $("#f-note").value.trim(), createdAt: new Date().toISOString() };
+      const btn = $("#confirm-booking"); btn.disabled = true;
+      try {
+        if (cloudActive) await cloudSet("bookings", booking);
+        else { DB.bookings.push(booking); saveLocal(); renderAll(); }
+      } catch (e) { console.error(e); err.textContent = "Errore di salvataggio. Controlla la connessione e riprova."; err.hidden = false; btn.disabled = false; return; }
+      btn.disabled = false;
+      closeModal("booking-modal");
+      const msg = notifyMessage(booking, slot);
+      $("#wa-confirm").href = `https://wa.me/${MARA_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      sendCallmebot(msg);
+      $("#thanks-recap").textContent = `${nome}, sei prenotato/a per ${fmtDateLong(slot.date)} dalle ${slot.start} alle ${slot.end}.`;
+      openModal("confirm-modal");
+    }
+
+    /* =========================================================
+       RENDER GLOBALE
+       ========================================================= */
+    function refreshStudent() { renderCalendar(); renderDaySlots(); }
+    function renderAll() {
+      refreshStudent();
+      if (!$("#admin-view").hidden) { renderAdminSlots(); renderBookingsTable(); }
+    }
+
+    /* =========================================================
+       AREA DOCENTE
+       ========================================================= */
+    function showAdmin() {
+      $("#admin-view").hidden = false;
+      document.body.style.overflow = "hidden";
+      if (!$("#admin-day").value) $("#admin-day").value = todayYMD();
+      if (!$("#slot-date").value) $("#slot-date").value = todayYMD();
+      if (!$("#bulk-from").value) $("#bulk-from").value = todayYMD();
+      renderAdminSlots(); renderBookingsTable(); updateCloudStatus();
+    }
+    function hideAdmin() { $("#admin-view").hidden = true; document.body.style.overflow = ""; refreshStudent(); }
+    function switchTab(name) {
+      $$(".atab").forEach((t) => t.classList.toggle("is-active", t.dataset.tab === name));
+      const map = { avail: "panel-avail", bookings: "panel-bookings", settings: "panel-settings" };
+      $$(".apanel").forEach((p) => p.classList.toggle("is-active", p.id === map[name]));
+    }
+
+    /* ---- Aggiungi singola fascia ---- */
+    async function addSlot() {
+      const date = $("#slot-date").value, start = $("#slot-start").value, end = $("#slot-end").value;
+      if (!date || !start || !end) { toast("Inserisci data e orari.", "err"); return; }
+      if (minutes(end) - minutes(start) < 60) { toast("Ogni turno deve durare almeno 1 ora.", "err"); return; }
+      if (overlaps(date, start, end)) { toast("Si sovrappone a una fascia esistente.", "err"); return; }
+      const slot = { id: uid(), date, start, end };
+      try {
+        if (cloudActive) await cloudSet("slots", slot);
+        else { DB.slots.push(slot); saveLocal(); renderAll(); }
+      } catch (e) { console.error(e); toast("Errore di salvataggio.", "err"); return; }
+      $("#admin-day").value = date; renderAdminSlots();
+      toast("Fascia aggiunta.", "ok");
+    }
+    function overlaps(date, start, end, ignoreId) {
+      return slotsForDate(date).some((s) => s.id !== ignoreId && minutes(start) < minutes(s.end) && minutes(end) > minutes(s.start));
+    }
+
+    /* ---- Genera fasce in blocco ---- */
+    async function bulkGenerate() {
+      const from = $("#bulk-from").value, to = $("#bulk-to").value;
+      const start = $("#bulk-start").value, end = $("#bulk-end").value;
+      const days = $$("#panel-avail .weekdays input:checked").map((c) => Number(c.value));
+      if (!from || !to) { toast("Scegli l'intervallo di date.", "err"); return; }
+      if (parseYMD(to) < parseYMD(from)) { toast("La data finale precede quella iniziale.", "err"); return; }
+      if (minutes(end) - minutes(start) < 60) { toast("L'intervallo orario deve coprire almeno 1 ora.", "err"); return; }
+      if (!days.length) { toast("Seleziona almeno un giorno della settimana.", "err"); return; }
+
+      const newSlots = [];
+      const cur = parseYMD(from), last = parseYMD(to);
+      while (cur <= last) {
+        if (days.includes(cur.getDay())) {
+          const date = ymd(cur);
+          for (let m = minutes(start); m + 60 <= minutes(end); m += 60) {
+            const s = `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
+            const e = `${pad(Math.floor((m + 60) / 60))}:${pad((m + 60) % 60)}`;
+            if (!overlaps(date, s, e) && !newSlots.some((n) => n.date === date && n.start === s)) {
+              newSlots.push({ id: uid(), date, start: s, end: e });
+            }
+          }
+        }
+        cur.setDate(cur.getDate() + 1);
+      }
+      if (!newSlots.length) { toast("Nessuna nuova fascia (già presenti).", ""); return; }
+      try {
+        if (cloudActive) await cloudBatchSet("slots", newSlots);
+        else { DB.slots.push(...newSlots); saveLocal(); renderAll(); }
+      } catch (e) { console.error(e); toast("Errore di salvataggio.", "err"); return; }
+      renderAdminSlots();
+      toast(`Generate ${newSlots.length} fasce da 1 ora.`, "ok");
+    }
+
+    /* ---- Fasce del giorno (admin) ---- */
+    function renderAdminSlots() {
+      const date = $("#admin-day").value, box = $("#admin-slots");
+      box.innerHTML = "";
+      if (!date) { box.innerHTML = `<p class="muted">Scegli un giorno.</p>`; return; }
+      const slots = slotsForDate(date);
+      if (!slots.length) { box.innerHTML = `<p class="muted">Nessuna fascia in questo giorno.</p>`; return; }
+      slots.forEach((s) => {
+        const b = bookingForSlot(s.id);
+        const row = document.createElement("div"); row.className = "aslot";
+        row.innerHTML = `
+      <div>
+        <div class="a-time">${s.start}–${s.end}</div>
+        ${b ? `<div class="a-who">👤 ${esc(b.nome)} ${esc(b.cognome)} · ${esc(b.materia)} (${b.scuola})</div>`
+            : `<div class="a-free">Libero</div>`}
+      </div>
+      <div class="a-actions">
+        ${b ? `<button class="icon-btn" data-edit="${b.id}" title="Modifica prenotazione">✏️</button>` : ""}
+        <button class="icon-btn del" data-delslot="${s.id}" title="Elimina fascia">🗑️</button>
+      </div>`;
+        box.appendChild(row);
+      });
+    }
+
+    async function deleteSlot(slotId) {
+      const b = bookingForSlot(slotId);
+      const msg = b ? "Questa fascia ha una prenotazione. Eliminarla cancellerà anche la prenotazione. Continuare?" : "Eliminare questa fascia oraria?";
+      if (!confirm(msg)) return;
+      try {
+        if (cloudActive) {
+          const batch = _writeBatch(fdb);
+          batch.delete(_doc(fdb, "slots", slotId));
+          DB.bookings.filter((x) => x.slotId === slotId).forEach((x) => batch.delete(_doc(fdb, "bookings", x.id)));
+          await batch.commit();
+        } else {
+          DB.bookings = DB.bookings.filter((x) => x.slotId !== slotId);
+          DB.slots = DB.slots.filter((x) => x.id !== slotId);
+          saveLocal(); renderAll();
+        }
+      } catch (e) { console.error(e); toast("Errore di eliminazione.", "err"); return; }
+      renderAdminSlots(); renderBookingsTable();
+      toast("Fascia eliminata.", "ok");
+    }
+
+    /* ---- Tabella prenotazioni ---- */
+    function renderBookingsTable() {
+      const tbody = $("#bk-rows"), filter = $("#bk-filter").value, q = $("#bk-search").value.trim().toLowerCase();
+      tbody.innerHTML = "";
+      let rows = DB.bookings.map((b) => ({ b, slot: DB.slots.find((s) => s.id === b.slotId) })).filter((r) => r.slot);
+      const t = todayYMD();
+      if (filter === "upcoming") rows = rows.filter((r) => r.slot.date >= t);
+      else if (filter === "past") rows = rows.filter((r) => r.slot.date < t);
+      if (q) rows = rows.filter((r) => (`${r.b.nome} ${r.b.cognome} ${r.b.materia} ${r.b.scuola} ${r.b.note || ""}`).toLowerCase().includes(q));
+      rows.sort((a, b) => a.slot.date === b.slot.date ? minutes(a.slot.start) - minutes(b.slot.start) : (a.slot.date < b.slot.date ? -1 : 1));
+
+      $("#bk-empty").hidden = rows.length > 0;
+      rows.forEach(({ b, slot }) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+      <td>${capitalize(parseYMD(slot.date).toLocaleDateString("it-IT", { weekday: "short", day: "numeric", month: "short" }))}</td>
+      <td>${slot.start}–${slot.end}</td>
+      <td><strong>${esc(b.nome)} ${esc(b.cognome)}</strong>${b.note ? `<br><span class="muted">${esc(b.note)}</span>` : ""}</td>
+      <td><span class="school-chip">${b.scuola}</span></td>
+      <td>${esc(b.materia)}</td>
+      <td style="white-space:nowrap">
+        <button class="icon-btn" data-edit="${b.id}" title="Modifica">✏️</button>
+        <button class="icon-btn del" data-delbk="${b.id}" title="Elimina">🗑️</button>
+      </td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function deleteBooking(id) {
+      if (!confirm("Eliminare questa prenotazione? La fascia tornerà disponibile.")) return;
+      try {
+        if (cloudActive) await cloudDel("bookings", id);
+        else { DB.bookings = DB.bookings.filter((b) => b.id !== id); saveLocal(); renderAll(); }
+      } catch (e) { console.error(e); toast("Errore di eliminazione.", "err"); return; }
+      renderBookingsTable(); renderAdminSlots();
+      toast("Prenotazione eliminata.", "ok");
+    }
+
+    /* ---- Aggiungi/Modifica prenotazione (admin) ---- */
+    function openEditBooking(id) {
+      state.editingBookingId = id;
+      const b = id ? DB.bookings.find((x) => x.id === id) : null;
+      $("#edit-badge").textContent = b ? "Modifica prenotazione" : "Nuova prenotazione";
+      $("#ed-h").textContent = b ? "Modifica prenotazione" : "Aggiungi prenotazione";
+      populateSlotSelect($("#e-slot"), b ? b.slotId : null);
+      $("#e-nome").value = b ? b.nome : ""; $("#e-cognome").value = b ? b.cognome : "";
+      $("#e-materia").value = b ? b.materia : ""; $("#e-scuola").value = b ? b.scuola : "Primaria";
+      $("#e-note").value = b ? b.note || "" : ""; $("#edit-error").hidden = true;
+      openModal("edit-modal");
+    }
+    function populateSlotSelect(sel, currentSlotId) {
+      sel.innerHTML = "";
+      const free = DB.slots.filter((s) => !isPastSlot(s) && (!bookingForSlot(s.id) || s.id === currentSlotId))
+        .sort((a, b) => a.date === b.date ? minutes(a.start) - minutes(b.start) : (a.date < b.date ? -1 : 1));
+      if (!free.length) { const o = document.createElement("option"); o.textContent = "Nessuna fascia libera — creane una in Disponibilità"; o.value = ""; sel.appendChild(o); return; }
+      free.forEach((s) => {
+        const o = document.createElement("option"); o.value = s.id;
+        o.textContent = `${capitalize(parseYMD(s.date).toLocaleDateString("it-IT", { weekday: "short", day: "numeric", month: "short" }))} · ${s.start}–${s.end}`;
+        if (s.id === currentSlotId) o.selected = true;
+        sel.appendChild(o);
+      });
+    }
+    async function saveBooking() {
+      const err = $("#edit-error");
+      const slotId = $("#e-slot").value;
+      const nome = $("#e-nome").value.trim(), cognome = $("#e-cognome").value.trim();
+      const materia = $("#e-materia").value.trim(), scuola = $("#e-scuola").value;
+      if (!slotId) { err.textContent = "Scegli una fascia oraria."; err.hidden = false; return; }
+      if (!nome || !cognome || !materia) { err.textContent = "Compila nome, cognome e materia."; err.hidden = false; return; }
+      const taken = bookingForSlot(slotId);
+      if (taken && taken.id !== state.editingBookingId) { err.textContent = "Quella fascia è già occupata."; err.hidden = false; return; }
+
+      try {
+        if (state.editingBookingId) {
+          const existing = DB.bookings.find((x) => x.id === state.editingBookingId) || {};
+          const updated = { ...existing, id: state.editingBookingId, slotId, nome, cognome, materia, scuola, note: $("#e-note").value.trim() };
+          if (cloudActive) await cloudSet("bookings", updated);
+          else { Object.assign(existing, updated); saveLocal(); renderAll(); }
+        } else {
+          const created = { id: uid(), slotId, nome, cognome, materia, scuola, note: $("#e-note").value.trim(), createdAt: new Date().toISOString() };
+          if (cloudActive) await cloudSet("bookings", created);
+          else { DB.bookings.push(created); saveLocal(); renderAll(); }
+        }
+      } catch (e) { console.error(e); err.textContent = "Errore di salvataggio."; err.hidden = false; return; }
+      closeModal("edit-modal"); renderBookingsTable(); renderAdminSlots();
+      toast("Prenotazione salvata.", "ok");
+    }
+
+    /* ---- Impostazioni ---- */
+    function savePassword() {
+      const p = $("#new-pass").value.trim();
+      if (p.length < 4) { toast("La password deve avere almeno 4 caratteri.", "err"); return; }
+      DB.settings.password = p; saveLocal(); $("#new-pass").value = "";
+      toast("Password aggiornata su questo dispositivo.", "ok");
+    }
+    function exportData() {
+      const blob = new Blob([JSON.stringify({ slots: DB.slots, bookings: DB.bookings, settings: DB.settings }, null, 2)], { type: "application/json" });
+      const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+      a.download = `prenotazioni-mara-${todayYMD()}.json`; a.click(); URL.revokeObjectURL(a.href);
+      toast("Backup esportato.", "ok");
+    }
+    async function importData(file) {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const obj = JSON.parse(reader.result);
+          if (!Array.isArray(obj.slots) || !Array.isArray(obj.bookings)) throw new Error("formato");
+          if (cloudActive) {
+            if (!confirm("Importare sostituirà i dati online attuali. Continuare?")) return;
+            await cloudDeleteAll("bookings"); await cloudDeleteAll("slots");
+            await cloudBatchSet("slots", obj.slots); await cloudBatchSet("bookings", obj.bookings);
+          } else {
+            DB.slots = obj.slots; DB.bookings = obj.bookings;
+            if (obj.settings) DB.settings = obj.settings;
+            saveLocal(); renderAll();
+          }
+          renderAdminSlots(); renderBookingsTable();
+          toast("Dati importati.", "ok");
+        } catch (e) { console.error(e); toast("File non valido o errore di importazione.", "err"); }
+      };
+      reader.readAsText(file);
+    }
+    async function resetData() {
+      if (!confirm("Cancellare TUTTI i dati (fasce e prenotazioni)? Operazione irreversibile.")) return;
+      try {
+        if (cloudActive) { await cloudDeleteAll("bookings"); await cloudDeleteAll("slots"); }
+        else { DB.slots = []; DB.bookings = []; saveLocal(); renderAll(); }
+      } catch (e) { console.error(e); toast("Errore durante la cancellazione.", "err"); return; }
+      renderAdminSlots(); renderBookingsTable();
+      toast("Dati cancellati.", "ok");
+    }
+
+    function updateCloudStatus() {
+      const el = $("#cloud-status"); if (!el) return;
+      el.classList.remove("online", "local", "error");
+      if (cloudActive) { el.classList.add("online"); el.textContent = "Online — le prenotazioni si sincronizzano tra tutti i dispositivi."; }
+      else if (CLOUD_CONFIGURED) { el.classList.add("error"); el.textContent = "Configurazione presente ma connessione non riuscita: l'app sta usando i dati locali di questo dispositivo."; }
+      else { el.classList.add("local"); el.textContent = "Solo questo dispositivo — i dati restano in questo browser. Compila la config Firebase per sincronizzare online."; }
+    }
+
+    /* -------------------- Notifiche WhatsApp -------------------- */
+    function notifyMessage(b, slot) {
+      let m = `Nuova prenotazione ripetizioni:\n${b.nome} ${b.cognome} (${b.scuola})\nMateria: ${b.materia}\nQuando: ${capitalize(fmtDateLong(slot.date))}, ${slot.start}-${slot.end}`;
+      if (b.note) m += `\nNote: ${b.note}`;
+      return m;
+    }
+    function sendCallmebot(text) {
+      if (!CALLMEBOT.phone || !CALLMEBOT.apikey) return;
+      const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(CALLMEBOT.phone)}&text=${encodeURIComponent(text)}&apikey=${encodeURIComponent(CALLMEBOT.apikey)}`;
+      fetch(url, { mode: "no-cors" }).catch((e) => console.warn("CallMeBot non raggiungibile:", e));
+    }
+
+    /* -------------------- Helper testo -------------------- */
+    function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+    function esc(s) { return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+
+    /* =========================================================
+       EVENTI
+       ========================================================= */
+    function wire() {
+      $("#cal-prev").addEventListener("click", () => { state.viewMonth = new Date(state.viewMonth.getFullYear(), state.viewMonth.getMonth() - 1, 1); renderCalendar(); });
+      $("#cal-next").addEventListener("click", () => { state.viewMonth = new Date(state.viewMonth.getFullYear(), state.viewMonth.getMonth() + 1, 1); renderCalendar(); });
+      $("#cal-grid").addEventListener("click", (e) => {
+        const btn = e.target.closest(".cal-day");
+        if (!btn || btn.disabled || !btn.dataset.date) return;
+        state.selectedDate = btn.dataset.date; renderCalendar(); renderDaySlots();
+        $("#slots-title").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+      $("#confirm-booking").addEventListener("click", confirmBooking);
+      ["#open-help", "#hero-help", "#foot-help"].forEach((s) => $(s).addEventListener("click", () => openModal("help-modal")));
+
+      ["#open-admin", "#foot-admin"].forEach((s) => $(s).addEventListener("click", () => {
+        $("#login-pass").value = ""; $("#login-error").hidden = true;
+        $("#default-hint").hidden = DB.settings.password !== "mara2026";
+        openModal("login-modal");
+      }));
+      $("#do-login").addEventListener("click", tryLogin);
+      $("#login-pass").addEventListener("keydown", (e) => { if (e.key === "Enter") tryLogin(); });
+      $("#admin-exit").addEventListener("click", () => { closeAllModals(); hideAdmin(); });
+      $$(".atab").forEach((t) => t.addEventListener("click", () => switchTab(t.dataset.tab)));
+
+      $("#add-slot").addEventListener("click", addSlot);
+      $("#bulk-generate").addEventListener("click", bulkGenerate);
+      $("#admin-day").addEventListener("change", renderAdminSlots);
+      $("#admin-slots").addEventListener("click", (e) => {
+        const del = e.target.closest("[data-delslot]"), ed = e.target.closest("[data-edit]");
+        if (del) deleteSlot(del.dataset.delslot);
+        if (ed) openEditBooking(ed.dataset.edit);
+      });
+
+      $("#bk-filter").addEventListener("change", renderBookingsTable);
+      $("#bk-search").addEventListener("input", renderBookingsTable);
+      $("#add-booking").addEventListener("click", () => openEditBooking(null));
+      $("#bk-rows").addEventListener("click", (e) => {
+        const del = e.target.closest("[data-delbk]"), ed = e.target.closest("[data-edit]");
+        if (del) deleteBooking(del.dataset.delbk);
+        if (ed) openEditBooking(ed.dataset.edit);
+      });
+      $("#save-booking").addEventListener("click", saveBooking);
+
+      $("#save-pass").addEventListener("click", savePassword);
+      $("#export-data").addEventListener("click", exportData);
+      $("#import-data").addEventListener("change", (e) => { if (e.target.files[0]) importData(e.target.files[0]); e.target.value = ""; });
+      $("#reset-data").addEventListener("click", resetData);
+
+      $$("[data-close]").forEach((b) => b.addEventListener("click", () => closeAllModals()));
+      $$(".modal").forEach((m) => m.addEventListener("click", (e) => { if (e.target === m) m.hidden = true; }));
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") $$(".modal").forEach((m) => (m.hidden = true)); });
+    }
+    function tryLogin() {
+      if ($("#login-pass").value === DB.settings.password) { closeModal("login-modal"); showAdmin(); }
+      else { $("#login-error").hidden = false; }
+    }
+
+    /* =========================================================
+       AVVIO + INIZIALIZZAZIONE CLOUD
+       ========================================================= */
+    async function initCloud() {
+      const base = `https://www.gstatic.com/firebasejs/${FB_VERSION}`;
+      const appMod = await import(`${base}/firebase-app.js`);
+      const fsMod = await import(`${base}/firebase-firestore.js`);
+      const app = appMod.initializeApp(firebaseConfig);
+      fdb = fsMod.getFirestore(app);
+      _collection = fsMod.collection; _doc = fsMod.doc; _setDoc = fsMod.setDoc;
+      _deleteDoc = fsMod.deleteDoc; _onSnapshot = fsMod.onSnapshot;
+      _writeBatch = fsMod.writeBatch; _getDocs = fsMod.getDocs;
+
+      // Accesso anonimo (invisibile all'utente). Se il provider non è attivo, si prosegue comunque.
+      try {
+        const authMod = await import(`${base}/firebase-auth.js`);
+        const auth = authMod.getAuth(app);
+        await authMod.signInAnonymously(auth);
+      } catch (e) { console.warn("Accesso anonimo non disponibile (ok se le regole sono aperte):", e?.code || e); }
+
+      // Sincronizzazione in tempo reale
+      _onSnapshot(_collection(fdb, "slots"), (snap) => { DB.slots = snap.docs.map((d) => d.data()); renderAll(); },
+        (err) => { console.error("Errore slots:", err); toast("Connessione dati interrotta.", "err"); });
+      _onSnapshot(_collection(fdb, "bookings"), (snap) => { DB.bookings = snap.docs.map((d) => d.data()); renderAll(); },
+        (err) => { console.error("Errore bookings:", err); });
+
+      cloudActive = true;
+    }
+
+    async function boot() {
+      wire();
+      if (CLOUD_CONFIGURED) {
+        DB.slots = []; DB.bookings = [];
+        try { await initCloud(); }
+        catch (e) { console.error("Init Firebase fallita:", e); cloudActive = false; DB = loadDB(); toast("Modalità online non disponibile: uso i dati locali.", "err"); }
+      }
+      renderAll();
+      updateCloudStatus();
+      if (!localStorage.getItem("mc_seen_help")) {
+        setTimeout(() => { openModal("help-modal"); localStorage.setItem("mc_seen_help", "1"); }, 600);
+      }
+    }
+
+    boot();
+
+  </script>
+</body>
+
+</html>
